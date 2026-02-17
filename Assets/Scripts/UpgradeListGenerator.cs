@@ -15,6 +15,7 @@ public class UpgradeListGenerator : MonoBehaviour
         foreach (var upgrade in database.upgrades)
         {
             StoreUpgrade ui = Instantiate(upgradePrefab, contentParent);
+            ui.name = upgrade.upgradeName + "Button";
             ui.Initialize(upgrade, gameManager);
             gameManager.storeUpgrades.Add(ui);
             Debug.Log("Added: " + ui.name);
