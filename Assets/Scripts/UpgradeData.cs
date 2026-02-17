@@ -11,4 +11,7 @@ public class UpgradeData : ScriptableObject
     public int startPrice;
     public float priceMultiplier;
     public float cookiesPerUpgrade;
+
+    [Header("Stats")]
+    public UpgradeStats stats;
 }

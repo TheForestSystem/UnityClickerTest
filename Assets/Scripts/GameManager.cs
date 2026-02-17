@@ -32,17 +32,30 @@ public class GameManager : MonoBehaviour
 
     void IdleCalculate()
     {
-        float sum = 0f;
-        foreach (var storeUpgrade in storeUpgrades)
-        {
-            sum += storeUpgrade.CalculateIncomePerSeccond();
-            storeUpgrade.UpdateUI();
-        }
-        lastIncomeValue = sum;
-        count += sum / updatesPerSeccond;
-        UpdateUI();
+        float passiveIncome = 0f;
+        float autoClicks = 0f;
 
+        foreach (var u in storeUpgrades)
+        {
+            if (u == null) continue;
+
+            passiveIncome += u.GetPassiveIncome();
+            autoClicks += u.GetAutoClicks();
+            u.UpdateUI();
+        }
+
+        lastIncomeValue = passiveIncome;
+
+        // Passive income
+        count += passiveIncome / updatesPerSeccond;
+
+        // Auto clicks simulate clicking
+        float clicksThisTick = autoClicks / updatesPerSeccond;
+        count += clicksThisTick;
+
+        UpdateUI();
     }
+
     public void ClickAction()
     {
         count++;

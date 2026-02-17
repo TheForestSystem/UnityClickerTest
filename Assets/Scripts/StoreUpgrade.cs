@@ -45,13 +45,27 @@ public class StoreUpgrade : MonoBehaviour
 
     public float CalculateIncomePerSeccond() { return data.cookiesPerUpgrade * level; }
 
+    public float GetPassiveIncome()
+    {
+        return data.stats.passiveIncome * level;
+    }
+
+    public float GetAutoClicks()
+    {
+        return data.stats.autoClicksPerSecond * level;
+    }
+
+    public float GetClickMultiplier()
+    {
+        return data.stats.clickMultiplier * level;
+    }
     public void UpdateUI()
     {
         priceText.text = CalculatePrice().ToString();
         incomeText.text = $"{level} x {data.cookiesPerUpgrade}/s";
         button.interactable = gameManager.count >= CalculatePrice();
 
-        bool isPurchased = level > 0; 
+        bool isPurchased = level > 0;
         iconImage.color = isPurchased ? Color.white : Color.black;
         nameText.text = isPurchased ? data.upgradeName : "???";
     }
