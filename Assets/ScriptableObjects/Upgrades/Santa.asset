@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d453eab886c654db8de88da4c26b55, type: 3}
   m_Name: Santa
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: 
-  icon: {fileID: 0}
-  startPrice: 0
-  priceMultiplier: 0
-  cookiesPerUpgrade: 0
+  upgradeName: Santa
+  icon: {fileID: 21300000, guid: 2e75737b7c5609d488e49925e317479f, type: 3}
+  startPrice: 30000
+  priceMultiplier: 1.12
+  stats:
+    passiveIncome: 300
+    autoClicksPerSecond: 0
+    clickMultiplier: 0

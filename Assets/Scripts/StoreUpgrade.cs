@@ -43,8 +43,6 @@ public class StoreUpgrade : MonoBehaviour
         return Mathf.RoundToInt(data.startPrice * Mathf.Pow(data.priceMultiplier, level));
     }
 
-    public float CalculateIncomePerSeccond() { return data.cookiesPerUpgrade * level; }
-
     public float GetPassiveIncome()
     {
         return data.stats.passiveIncome * level;
@@ -62,7 +60,7 @@ public class StoreUpgrade : MonoBehaviour
     public void UpdateUI()
     {
         priceText.text = CalculatePrice().ToString();
-        incomeText.text = $"{level} x {data.cookiesPerUpgrade}/s";
+        incomeText.text = $"{level} x {data.stats.passiveIncome}/s";
         button.interactable = gameManager.count >= CalculatePrice();
 
         bool isPurchased = level > 0;

@@ -1,12 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("UI Components")]
     [SerializeField] TMP_Text countText;
     [SerializeField] TMP_Text incomeText;
     [SerializeField] int updatesPerSeccond = 5;
+
+    [Header("Snowflake Bonus Settings")]
+    [SerializeField] Snowflake snowflakePrefab;
+    [SerializeField] RectTransform snowflakeBounds;
+    [SerializeField] float minSpawnTime = 120f; // 2 minutes
+    [SerializeField] float maxSpawnTime = 300f; // 5 minutes
+
 
     [HideInInspector] public float count = 0;
 
@@ -19,6 +28,12 @@ public class GameManager : MonoBehaviour
     {
         UpdateUI();
         Debug.Log("GameManager upgrades count: " + storeUpgrades.Count);
+
+        StartCoroutine(SnowflakeSpawner());
+
+        // wait 5 sec then spawn a snowflake for testing
+
+        Invoke(nameof(SpawnSnowflake), 5f);
     }
 
     private void Update()
@@ -29,6 +44,26 @@ public class GameManager : MonoBehaviour
             nextTimeCheck = Time.timeSinceLevelLoad + (1f / updatesPerSeccond);
         }
     }
+
+    IEnumerator SnowflakeSpawner()
+    {
+        while (true)
+        {
+            float waitTime = Random.Range(minSpawnTime, maxSpawnTime);
+            yield return new WaitForSeconds(waitTime);
+
+            SpawnSnowflake();
+        }
+    }
+
+    void SpawnSnowflake()
+    {
+        Snowflake snowflake = Instantiate(snowflakePrefab, snowflakeBounds);
+
+        snowflake.Initialize(this); // pass GameManager reference
+    }
+
+    public RectTransform GetSnowflakeBounds() => snowflakeBounds;
 
     void IdleCalculate()
     {
@@ -60,6 +95,12 @@ public class GameManager : MonoBehaviour
     {
         count++;
         count += lastIncomeValue * 0.02f;
+        UpdateUI();
+    }
+
+    public void AddCount(float amount)
+    {
+        count += amount;
         UpdateUI();
     }
 

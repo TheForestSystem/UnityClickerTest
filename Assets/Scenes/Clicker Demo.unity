@@ -406,6 +406,10 @@ MonoBehaviour:
   countText: {fileID: 598511652}
   incomeText: {fileID: 1920327924}
   updatesPerSeccond: 5
+  snowflakePrefab: {fileID: 1569441218581026799, guid: 53501bdd1167208459f36e3d7e8114df, type: 3}
+  snowflakeBounds: {fileID: 1785797424}
+  minSpawnTime: 120
+  maxSpawnTime: 300
   count: 0
   storeUpgrades:
   - {fileID: 0}
@@ -886,7 +890,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660115458}
-  - component: {fileID: 660115460}
   - component: {fileID: 660115462}
   - component: {fileID: 660115461}
   m_Layer: 5
@@ -916,18 +919,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.001503, y: -110.07257}
   m_SizeDelta: {x: 561.28, y: 831.5984}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &660115460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660115457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd983277c4c09034e8f4eb934a1ea5da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
 --- !u!114 &660115461
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a7cb1f2e255cc664aa6b80c867708a51, type: 3}
   startPrice: 400
   priceMultiplier: 1.1
-  cookiesPerUpgrade: 12
+  stats:
+    passiveIncome: 12
+    autoClicksPerSecond: 0
+    clickMultiplier: 0

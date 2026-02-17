@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d453eab886c654db8de88da4c26b55, type: 3}
   m_Name: Raindeer
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: Penguin
-  icon: {fileID: 21300000, guid: a7cb1f2e255cc664aa6b80c867708a51, type: 3}
-  startPrice: 400
+  upgradeName: Raindeer
+  icon: {fileID: 21300000, guid: ef4a1ccf70c103743a070dfd42bbcb15, type: 3}
+  startPrice: 4000
   priceMultiplier: 1.1
-  cookiesPerUpgrade: 12
+  stats:
+    passiveIncome: 50
+    autoClicksPerSecond: 0
+    clickMultiplier: 0
