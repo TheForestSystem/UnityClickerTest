@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -5,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text countText;
     [SerializeField] TMP_Text incomeText;
-    [SerializeField] StoreUpgrade[] storeUpgrades;
     [SerializeField] int updatesPerSeccond = 5;
 
     [HideInInspector] public float count = 0;
@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
     float nextTimeCheck = 1;
     float lastIncomeValue = 0;
 
+    [HideInInspector] public List<StoreUpgrade> storeUpgrades = new List<StoreUpgrade>();
+
     private void Start()
     {
         UpdateUI();
+        Debug.Log("GameManager upgrades count: " + storeUpgrades.Count);
     }
 
     private void Update()

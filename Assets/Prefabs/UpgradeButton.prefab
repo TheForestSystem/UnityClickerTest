@@ -41,7 +41,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0, y: 190}
-  m_SizeDelta: {x: 561.286, y: 149.869}
+  m_SizeDelta: {x: 560, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6842241161008270825
 MonoBehaviour:
@@ -57,13 +57,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoreUpgrade
   priceText: {fileID: 5443067442153699585}
   incomeText: {fileID: 5606365270751750893}
+  nameText: {fileID: 5315962150217411831}
+  iconImage: {fileID: 801824551623151475}
   button: {fileID: 6696932242973763828}
-  charImage: {fileID: 801824551623151475}
-  upgradeNameText: {fileID: 5315962150217411831}
-  startPrice: 15
-  upgradePriceMultiplier: 1.15
-  cookiesPerUpgrade: 0.1
-  gameManager: {fileID: 0}
 --- !u!114 &6696932242973763828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +106,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6842241161008270825}
         m_TargetAssemblyTypeName: StoreUpgrade, Assembly-CSharp
-        m_MethodName: ClickAction
+        m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
